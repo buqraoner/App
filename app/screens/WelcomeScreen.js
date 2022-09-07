@@ -16,8 +16,12 @@ function WelcomeScreen(props) {
                 />
                 <Text>Sell What You Don't Need</Text>
             </View>
-            <View style={styles.loginButton}></View>
-            <View style={styles.registerButton}></View>
+            <View style={styles.loginButton}>
+                <AppText>Login</AppText>
+            </View>
+            <View style={styles.registerButton}>
+                <AppText>Register</AppText>
+            </View>
         </ImageBackground>
 
     );
@@ -34,7 +38,8 @@ const styles = StyleSheet.create({
         height: 70,
         backgroundColor: "#fc5c65",
         borderRadius: 50,
-        marginBottom: 25,
+        marginBottom: 15,
+        justifyContent: "center",
     },
     registerButton: {
         width: "90%",
@@ -42,6 +47,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#4ecdc4",
         borderRadius: 50,
         marginBottom: 25,
+        justifyContent: "center",
+        textAlign: "center",
     },
     logo: {
         width: 100,
