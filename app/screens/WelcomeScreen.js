@@ -1,11 +1,12 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, View, Image, Text } from 'react-native';
 
-import AppText from '../components/AppText/AppText';
+import AppButton from '../components/AppButton';
 
 function WelcomeScreen(props) {
     return (
         <ImageBackground
+            blurRadius={3}
             style={styles.background}
             source={require("../assets/background.jpg")}
         >
@@ -14,13 +15,11 @@ function WelcomeScreen(props) {
                     style={styles.logo}
                     source={require("../assets/logo2.png")}
                 />
-                <Text>Sell What You Don't Need</Text>
+                <Text style={styles.tagline}>Sell What You Don't Need</Text>
             </View>
-            <View style={styles.loginButton}>
-                <AppText>Login</AppText>
-            </View>
-            <View style={styles.registerButton}>
-                <AppText>Register</AppText>
+            <View style={styles.buttonsContainer}>
+                <AppButton title="Login" />
+                <AppButton title="Register" color="secondary" />
             </View>
         </ImageBackground>
 
@@ -33,33 +32,24 @@ const styles = StyleSheet.create({
         justifyContent: "flex-end",
         alignItems: "center",
     },
-    loginButton: {
-        width: "90%",
-        height: 70,
-        backgroundColor: "#fc5c65",
-        borderRadius: 50,
-        marginBottom: 15,
-        justifyContent: "center",
-    },
-    registerButton: {
-        width: "90%",
-        height: 70,
-        backgroundColor: "#4ecdc4",
-        borderRadius: 50,
-        marginBottom: 25,
-        justifyContent: "center",
-        textAlign: "center",
+    buttonsContainer: {
+        padding: 20,
+        width: "100%",
     },
     logo: {
         width: 100,
         height: 100,
-
     },
     logoContainer: {
         position: "absolute",
         top: 70,
         alignItems: "center",
-    }
+    },
+    tagline: {
+        fontSize: 25,
+        fontWeight: "600",
+        paddingVertical: 20,
+    },
 })
 
 
