@@ -1,9 +1,9 @@
-import { FlatList, StyleSheet } from 'react-native'
+import { FlatList, StyleSheet, useState } from 'react-native'
 import React from 'react'
 import Constants from 'expo-constants'
-import ListItem from '../components/ListItem'
 console.log(Constants.statusBarHeight);
 
+import ListItem from '../components/ListItem'
 import ListItemDeleteAction from '../components/ListItemDeleteAction';
 import Screen from '../components/Screen'
 import ListItemSeparator from '../components/ListItemSeparator'
@@ -29,9 +29,9 @@ const initialMessages = [
     },
 ]
 
-export default function MessagesScreen() {
-    const [refreshing, setRefreshing] = React.useState(false);
-    const [messages, setMessages] = React.useState(initialMessages);
+function MessagesScreen(props) {
+    const [refreshing, setRefreshing] = useState(false);
+    const [messages, setMessages] = useState(initialMessages);
     const handleDelete = message => {
         // Delete the message from messages
         setMessages(messages.filter(m => m.id !== message.id));
@@ -43,21 +43,31 @@ export default function MessagesScreen() {
             <FlatList
                 data={messages}
                 keyExtractor={message => message.id.toString()}
-                renderItem={({ item }) =>
+                renderItem={({ item }) => (
                     <ListItem
                         title={item.title}
                         subTitle={item.description}
                         image={item.image}
                         onPress={() => console.log("Message selected", item)}
-                        renderRightActions={() => <ListItemDeleteAction onPress={() => handleDelete(item)} />}
-                        ItemSeparatorComponent={() => <ListItemSeparator />}
+                        renderRightActions={() => (
+                            <ListItemDeleteAction onPress={() => handleDelete(item)} />
+                        )}
+                        ItemSeparatorComponent={ListItemSeparator}
+                        onRefresh={() => {
+                            setMessages([
+                                {
+                                    id: 2,
+                                    title: "T2",
+                                    description: "D2",
+                                    image: require("../assets/messagesScreen.jpg")
+                                },
+                            ])
+                        }}
                     />
-                }
+                )}
             />
         </Screen>
     )
 }
 
-const styles = StyleSheet.create({
-
-})
+export default MessagesScreen

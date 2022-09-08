@@ -1,33 +1,36 @@
 import { View, StyleSheet, Image, TouchableHighlight } from 'react-native'
 import React from 'react'
+import { GestureHandlerRootView, Swipeable } from 'react-native-gesture-handler/Swipeable'
 
 import colors from '../config/colors'
 import AppText from './AppText/AppText'
-import Swipeable from 'react-native-gesture-handler/Swipeable'
 
-export default function ListItem({ title, subTitle, image, onPress, renderRightActions }) {
+// </Swipeable>
+function ListItem({ title, subTitle, image, IconComponent, onPress, renderRightActions }) {
     return (
-        <Swipeable renderRightActions={renderRightActions}>
-            <TouchableHighlight
-                underlayColor={colors.light}
-                onPress={onPress}
-            >
-                <View style={styles.container}>
-                    <Image style={styles.image} source={image} />
-                    <View>
-                        <AppText style={styles.title}>{title}</AppText>
-                        <AppText style={styles.subTitle}>{subTitle}</AppText>
-                    </View>
+        <TouchableHighlight
+            underlayColor={colors.light}
+            onPress={onPress}
+        >
+            <View style={styles.container}>
+                {IconComponent}
+                {image && <Image style={styles.image} source={image} />}
+                <View>
+                    <AppText style={styles.title}>{title}</AppText>
+                    {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
                 </View>
-            </TouchableHighlight>
-        </Swipeable>
-    )
+            </View>
+        </TouchableHighlight>
+
+    );
 }
+
 
 const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         padding: 15,
+        backgroundColor: colors.white,
     },
     image: {
         width: 70,
@@ -39,6 +42,10 @@ const styles = StyleSheet.create({
         color: colors.medium
     },
     title: {
-        fontWeight: "500"
+        fontWeight: "500",
+        color: colors.black
+
     }
 })
+
+export default ListItem

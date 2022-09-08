@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import colors from '../config/colors'
 
-export default function ListItemDeleteAction({ onPress }) {
+function ListItemDeleteAction({ onPress }) {
     return (
         <TouchableWithoutFeedback onPress={onPress}>
             <View style={styles.container}>
@@ -26,3 +26,5 @@ const styles = StyleSheet.create({
         alignItems: "center",
     }
 });
+
+export default ListItemDeleteAction
