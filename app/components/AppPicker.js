@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import AppText from './AppText'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import colors from '../config/colors'
-import defaultStyles from '../config/styles'
 import Screen from './Screen'
 
 
