@@ -20,7 +20,6 @@ export default {
     darkred: "#8b0000",
     lightyellow: "#ffffe0",
     darkyellow: "#808000",
-    // new colors
     lightpurple: "#e6e6fa",
     darkpurple: "#4b0082",
     lightorange: "#ffa07a",
