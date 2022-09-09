@@ -12,14 +12,14 @@ const menuItems = [
         title: "My Listings",
         icon: {
             name: "format-list-bulleted",
-            backgroundColor: "primary"
+            backgroundColor: colors.primary
         }
     },
     {
         title: "My Messages",
         icon: {
             name: "email",
-            backgroundColor: "secondary"
+            backgroundColor: colors.secondary
         }
     }
 ]

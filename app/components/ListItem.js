@@ -21,15 +21,13 @@ function ListItem({ title, subTitle, image, IconComponent, onPress, renderRightA
                 </View>
             </View>
         </TouchableHighlight>
-
     );
 }
-
 
 const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
-        padding: 15,
+        padding: 10,
         backgroundColor: colors.white,
     },
     image: {
@@ -43,8 +41,8 @@ const styles = StyleSheet.create({
     },
     title: {
         fontWeight: "500",
-        color: colors.black
-
+        color: colors.black,
+        marginTop: 7
     }
 })
 
