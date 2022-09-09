@@ -1,3 +1,3 @@
-import appText from "./AppText";
+import AppText from "./AppText";
 
 export default AppText;
