@@ -5,9 +5,9 @@ import Screen from '../components/Screen'
 
 import colors from '../config/colors'
 
-import AppFormField from '../components/AppFormField'
+import AppFormField from '../components/forms/AppFormField'
 import SubmitButton from '../components/SubmitButton'
-import AppForm from '../components/AppForm'
+import AppForm from '../components/forms/AppForm'
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label("Email"),

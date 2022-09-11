@@ -8,7 +8,7 @@ import defaultStyles from '../config/styles'
 function AppTextInput({ icon, ...otherProps }) {
     return (
         <View style={styles.container}>
-            {icon && <MaterialCommunityIcons name={icon} size={20} color={defaultStyles.colors.medium}
+            {icon && <MaterialCommunityIcons name={icon} size={20} color={defaultStyles.colors.black}
                 style={styles.icon} />}
             <TextInput
                 {...otherProps}
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.darkgrey,
         borderRadius: 25,
         flexDirection: "row",
-        width: "95%",
+        width: "100%",
         padding: 15,
         marginVertical: 10,
     },
