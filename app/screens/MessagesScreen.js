@@ -1,12 +1,12 @@
-import { FlatList, StyleSheet, useState } from 'react-native'
-import React from 'react'
+import { FlatList, StyleSheet } from 'react-native'
+import React, { useState } from 'react'
 import Constants from 'expo-constants'
 console.log(Constants.statusBarHeight);
 
-import ListItem from '../components/ListItem'
-import ListItemDeleteAction from '../components/ListItemDeleteAction';
+import ListItem from '../components/lists/ListItem'
+import ListItemDeleteAction from '../components/lists/ListItemDeleteAction';
 import Screen from '../components/Screen'
-import ListItemSeparator from '../components/ListItemSeparator'
+import ListItemSeparator from '../components/lists/ListItemSeparator'
 
 const initialMessages = [
     {
@@ -37,6 +37,7 @@ function MessagesScreen(props) {
         setMessages(messages.filter(m => m.id !== message.id));
     }
 
+
     return (
 
         <Screen>
@@ -50,6 +51,7 @@ function MessagesScreen(props) {
                         image={item.image}
                         onPress={() => console.log("Message selected", item)}
                         renderRightActions={() => (
+
                             <ListItemDeleteAction onPress={() => handleDelete(item)} />
                         )}
                         ItemSeparatorComponent={ListItemSeparator}

@@ -2,8 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { useFormikContext } from 'formik'
 
-import colors from '../config/colors'
-import AppButton from './AppButton'
+import AppButton from '../AppButton'
 
 export default function SubmitButton({ title }) {
     const { handleSubmit } = useFormikContext()
@@ -14,6 +13,3 @@ export default function SubmitButton({ title }) {
     )
 }
 
-const styles = StyleSheet.create({
-
-})

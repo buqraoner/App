@@ -16,7 +16,8 @@ function AppPicker({ icon, items, placeholder }) {
                 <View style={styles.container}>
                     {icon && <MaterialCommunityIcons name={icon} size={20} color={colors.medium}
                         style={styles.icon} />}
-                    <AppText style={styles.text}>{placeholder}</AppText>
+                    <AppText style={styles.text}>
+                        {placeholder}</AppText>
                     <MaterialCommunityIcons name='chevron-down' size={20} color={colors.medium} />
                 </View>
             </TouchableNativeFeedback>
@@ -39,7 +40,7 @@ function AppPicker({ icon, items, placeholder }) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.black,
+        backgroundColor: colors.lightgrey,
         borderRadius: 25,
         flexDirection: "row",
         width: "100%",
