@@ -1,9 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image } from 'react-native';
 import * as Yup from 'yup';
 
-import { AppForm as Form, AppFormField as FormField, AppFormPicker as Picker, SubmitButton } from '../components/forms';
+import { AppForm, AppFormField, SubmitButton } from '../components/forms';
 import Screen from '../components/Screen';
+import colors from '../config/colors';
+import defaultStyles from '../config/styles';
 
 //Register Screen
 const validationSchema = Yup.object().shape({
@@ -13,15 +15,16 @@ const validationSchema = Yup.object().shape({
 });
 
 
-export default function RegisterScreen() {
+function RegisterScreen(props) {
     return (
-        <Screen style={styles.container}>
-            <Form
+        <Screen style={defaultStyles.screens}>
+            <Image style={defaultStyles.logo} source={require('../assets/logo.png')} />
+            <AppForm
                 initialValues={{ name: '', email: '', password: '' }}
                 onSubmit={values => console.log(values)}
                 validationSchema={validationSchema}
             >
-                <FormField
+                <AppFormField
                     autoCapitalize="none"
                     autoCorrect={false}
                     icon="account"
@@ -29,7 +32,8 @@ export default function RegisterScreen() {
                     placeholder="Name"
                     textContentType="name"
                 />
-                <FormField
+                <AppFormField
+
                     autoCapitalize="none"
                     autoCorrect={false}
                     icon="email"
@@ -38,7 +42,8 @@ export default function RegisterScreen() {
                     placeholder="Email"
                     textContentType="emailAddress"
                 />
-                <FormField
+                <AppFormField
+
                     autoCapitalize="none"
                     autoCorrect={false}
                     icon="lock"
@@ -48,16 +53,14 @@ export default function RegisterScreen() {
                     textContentType="password"
                 />
                 <SubmitButton title="Register" />
-            </Form>
+            </AppForm>
         </Screen>
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        padding: 10,
-    },
-});
+
+export default RegisterScreen;
+
 
 
 

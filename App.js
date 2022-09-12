@@ -14,6 +14,7 @@ import AppPicker from './app/components/AppPicker';
 import LoginScreen from './app/screens/LoginScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import AppFormPicker from './app/components/forms/AppFormPicker';
+import RegisterScreen from './app/screens/RegisterScreen';
 
 
 
@@ -25,7 +26,7 @@ export default function App() {
   ]
 
   return (
-    <AccountScreen />
+    <RegisterScreen />
   )
 }
 

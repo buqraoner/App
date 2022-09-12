@@ -26,6 +26,8 @@ const categories = [
 ]
 
 export default function ListingEditScreen() {
+    <View></View>
+}
 
 
 
