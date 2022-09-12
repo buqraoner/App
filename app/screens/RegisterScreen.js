@@ -14,7 +14,7 @@ const validationSchema = Yup.object().shape({
     password: Yup.string().required().min(5).label('Password'),
 });
 
-
+// asfsadf
 function RegisterScreen(props) {
     return (
         <Screen style={defaultStyles.screens}>
