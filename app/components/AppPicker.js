@@ -5,15 +5,23 @@ import AppText from './AppText'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import colors from '../config/colors'
 import Screen from './Screen'
+import PickerItem from './PickerItem'
 
 
 
-function AppPicker({ icon, items, placeholder, selectedItem, onSelectItem }) {
+function AppPicker({
+    width = "100%",
+    icon, items,
+    placeholder, selectedItem,
+    onSelectItem, numberOfColumns = 1,
+    PickerItemComponent = PickerItem, }) {
+
     const [modalVisible, setModalVisible] = useState(false)
+
     return (
         <>
             <TouchableNativeFeedback onPress={() => setModalVisible(true)}>
-                <View style={styles.container}>
+                <View style={[styles.container, { width }]}>
                     {icon && <MaterialCommunityIcons name={icon} size={250} color={colors.medium}
                         style={styles.icon} />}
                     <AppText style={styles.text}>
@@ -24,13 +32,24 @@ function AppPicker({ icon, items, placeholder, selectedItem, onSelectItem }) {
             </TouchableNativeFeedback>
             <Modal visible={modalVisible} animationType='slide'>
                 <Screen>
-                    <Button title="close" onPress={() => setModalVisible(false)} />
+                    <Button
+                        title="close"
+                        onPress={() => setModalVisible(false)}
+                    />
                     <FlatList
                         data={items}
                         keyExtractor={item => item.value.toString()}
-                        renderItem={({ item }) =>
-                            <AppText>{item.label}</AppText>
-                        }
+                        numColumns={numberOfColumns}
+                        renderItem={({ item }) => (
+                            <PickerItemComponent
+                                item={item}
+                                label={item.label}
+                                onPress={() => {
+                                    setModalVisible(false)
+                                    onSelectItem(item)
+                                }}
+                            />
+                        )}
                     />
                 </Screen>
             </Modal>
@@ -44,7 +63,6 @@ const styles = StyleSheet.create({
         backgroundColor: colors.darkgrey,
         borderRadius: 25,
         flexDirection: "row",
-        width: "100%",
         padding: 15,
         marginVertical: 10
     },

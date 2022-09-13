@@ -5,7 +5,7 @@ import { useFormikContext } from 'formik'
 import ErrorMessage from './ErrorMessage'
 
 
-const AppFormPicker = ({ items, name, placeholder, width, PickerItemComponent, numberOfColumns }) => {
+const AppFormPicker = ({ items, name, placeholder, width, PickerItemComponent, numberOfColumns, }) => {
     const { errors, setFieldValue, touched, values } = useFormikContext()
 
     return (

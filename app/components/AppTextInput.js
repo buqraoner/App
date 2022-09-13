@@ -8,9 +8,16 @@ import defaultStyles from '../config/styles'
 function AppTextInput({ icon, width = "%100", ...otherProps }) {
     return (
         <View style={[styles.container, { width }]}>
-            {icon && <MaterialCommunityIcons name={icon} size={20} color={defaultStyles.colors.black}
-                style={styles.icon} />}
+            {icon &&
+                (<MaterialCommunityIcons
+                    name={icon} s
+                    ize={20}
+                    color={defaultStyles.colors.black}
+                    style={styles.icon}
+                />
+                )}
             <TextInput
+                placeholderTextColor={defaultStyles.colors.lightgrey}
                 {...otherProps}
                 style={defaultStyles.text}
             />
@@ -23,12 +30,10 @@ const styles = StyleSheet.create({
         backgroundColor: colors.darkgrey,
         borderRadius: 25,
         flexDirection: "row",
-        width: "100%",
         padding: 15,
         marginVertical: 10,
     },
     icon: {
-        marginTop: 4,
         marginRight: 10
     },
     AppTextInput: {
