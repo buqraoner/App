@@ -4,7 +4,6 @@ import * as Yup from 'yup';
 
 import { AppForm, AppFormField, SubmitButton } from '../components/forms';
 import Screen from '../components/Screen';
-import colors from '../config/colors';
 import defaultStyles from '../config/styles';
 
 //Register Screen
@@ -14,7 +13,6 @@ const validationSchema = Yup.object().shape({
     password: Yup.string().required().min(5).label('Password'),
 });
 
-// asfsadf
 function RegisterScreen(props) {
     return (
         <Screen style={defaultStyles.screens}>
@@ -33,7 +31,6 @@ function RegisterScreen(props) {
                     textContentType="name"
                 />
                 <AppFormField
-
                     autoCapitalize="none"
                     autoCorrect={false}
                     icon="email"
@@ -43,7 +40,6 @@ function RegisterScreen(props) {
                     textContentType="emailAddress"
                 />
                 <AppFormField
-
                     autoCapitalize="none"
                     autoCorrect={false}
                     icon="lock"
@@ -57,7 +53,6 @@ function RegisterScreen(props) {
         </Screen>
     );
 }
-
 
 export default RegisterScreen;
 

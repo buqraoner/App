@@ -1,14 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native'
+
 import React from 'react'
-
-
-import colors from '../../config/colors'
 import AppPicker from '../AppPicker'
-import { Formik, useFormikContext } from 'formik'
+import { useFormikContext } from 'formik'
 import ErrorMessage from './ErrorMessage'
 
+
 const AppFormPicker = ({ items, name, placeholder, width, PickerItemComponent, numberOfColumns }) => {
-    const { setFieldValue, errors, touched, values } = useFormikContext()
+    const { errors, setFieldValue, touched, values } = useFormikContext()
 
     return (
         <>

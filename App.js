@@ -15,6 +15,8 @@ import LoginScreen from './app/screens/LoginScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import AppFormPicker from './app/components/forms/AppFormPicker';
 import RegisterScreen from './app/screens/RegisterScreen';
+import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
+import ListingEditScreen from './app/screens/ListingEditScreen';
 
 
 
@@ -26,7 +28,7 @@ export default function App() {
   ]
 
   return (
-    <RegisterScreen />
+    <ListingEditScreen />
   )
 }
 

@@ -8,7 +8,6 @@ export default function ErrorMessage({ error, visible }) {
 
     return (
         <AppText style={styles.error}>{error}</AppText>
-
     )
 }
 
