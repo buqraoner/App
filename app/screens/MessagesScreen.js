@@ -3,28 +3,31 @@ import React, { useState } from 'react'
 import Constants from 'expo-constants'
 console.log(Constants.statusBarHeight);
 
-import ListItem from '../components/lists/ListItem'
-import ListItemDeleteAction from '../components/lists/ListItemDeleteAction';
 import Screen from '../components/Screen'
-import ListItemSeparator from '../components/lists/ListItemSeparator'
+import {
+    ListItem,
+    ListItemSeparator,
+    ListItemDeleteAction
+} from '../components/lists';
+
 
 const initialMessages = [
     {
         id: 1,
-        title: "T1",
-        description: "D1",
+        title: "Buğra Öner",
+        description: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
         image: require("../assets/messagesScreen.jpg")
     },
     {
         id: 2,
-        title: "T2",
-        description: "D2",
+        title: "Buğra Öner",
+        description: " Is this item still available?",
         image: require("../assets/messagesScreen.jpg")
     },
     {
         id: 3,
-        title: "T3",
-        description: "D3",
+        title: "Buğra Öner",
+        description: "I'm interested in this item. When will you be able to post it?",
         image: require("../assets/messagesScreen.jpg")
     },
 ]
@@ -32,9 +35,9 @@ const initialMessages = [
 function MessagesScreen(props) {
     const [refreshing, setRefreshing] = useState(false);
     const [messages, setMessages] = useState(initialMessages);
-    const handleDelete = message => {
+    const handleDelete = (message) => {
         // Delete the message from messages
-        setMessages(messages.filter(m => m.id !== message.id));
+        setMessages(messages.filter((m) => m.id !== message.id));
     }
 
 
@@ -51,22 +54,22 @@ function MessagesScreen(props) {
                         image={item.image}
                         onPress={() => console.log("Message selected", item)}
                         renderRightActions={() => (
-
                             <ListItemDeleteAction onPress={() => handleDelete(item)} />
                         )}
-                        ItemSeparatorComponent={ListItemSeparator}
-                        onRefresh={() => {
-                            setMessages([
-                                {
-                                    id: 2,
-                                    title: "T2",
-                                    description: "D2",
-                                    image: require("../assets/messagesScreen.jpg")
-                                },
-                            ])
-                        }}
                     />
                 )}
+                ItemSeparatorComponent={ListItemSeparator}
+                refreshing={refreshing}
+                onRefresh={() => {
+                    setMessages([
+                        {
+                            id: 2,
+                            title: "Buğra Öner",
+                            description: " Is this item still available?",
+                            image: require("../assets/messagesScreen.jpg")
+                        },
+                    ])
+                }}
             />
         </Screen>
     )
