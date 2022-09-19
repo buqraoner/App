@@ -3,6 +3,7 @@ import React from 'react'
 
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+//not working 
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 import colors from '../../config/colors'
@@ -14,7 +15,7 @@ import AppText from '../AppText'
 function ListItem({
     title, subTitle, image,
     IconComponent, onPress, renderRightActions }) {
-
+    //working
     const Swipeable = require('react-native-gesture-handler/Swipeable').default;
 
     return (
@@ -65,6 +66,7 @@ const styles = StyleSheet.create({
         width: 70,
         height: 70,
         borderRadius: 35,
+        marginRight: 10,
     },
     subTitle: {
         color: colors.medium

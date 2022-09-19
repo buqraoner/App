@@ -10,8 +10,8 @@ function AppTextInput({ icon, width = "%100", ...otherProps }) {
         <View style={[styles.container, { width }]}>
             {icon &&
                 (<MaterialCommunityIcons
-                    name={icon} s
-                    ize={20}
+                    name={icon}
+                    size={25}
                     color={defaultStyles.colors.black}
                     style={styles.icon}
                 />

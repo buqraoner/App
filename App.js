@@ -1,5 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
+import React, { useState, useEffect } from 'react';
+import * as Permissions from 'expo-permissions';
+import * as Location from 'expo-location';
+
 
 
 
@@ -17,12 +22,23 @@ import AppFormPicker from './app/components/forms/AppFormPicker';
 import RegisterScreen from './app/screens/RegisterScreen';
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
+import ImageInput from './app/components/ImageInput';
+import ImageInputList from './app/components/ImageInputList';
 
 
 
 export default function App() {
+  const [imageUris, setImageUris] = useState();
+
   return (
-    <MessagesScreen />
+
+    <Screen>
+      <ImageInputList
+        imageUri={imageUris}
+        onAddImage={uri => setImageUris([...imageUris, uri])}
+        onRemoveImage={uri => setImageUris(imageUris.filter(imageUri => imageUri !== uri))}
+      />
+    </Screen>
   )
 }
 
