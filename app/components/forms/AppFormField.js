@@ -22,6 +22,7 @@ export default function AppFormField({ name, width = "100%", ...otherProps }) {
                 onBlur={() => setFieldTouched(name)}
                 width={width}
                 {...otherProps}
+
             />
             <ErrorMessage error={errors[name]} visible={touched[name]} />
         </>
