@@ -8,7 +8,7 @@ export default function SubmitButton({ title }) {
     const { handleSubmit } = useFormikContext()
     return (
         <View>
-            <AppButton title={title} onPress={handleSubmit} color="dark" />
+            <AppButton title={title} onPress={handleSubmit} color="black" />
         </View>
     )
 }

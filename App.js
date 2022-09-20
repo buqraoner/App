@@ -4,6 +4,9 @@ import * as ImagePicker from 'expo-image-picker';
 import React, { useState, useEffect } from 'react';
 import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
+import { NavigationContainer } from '@react-navigation/native';
+
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 
@@ -25,20 +28,16 @@ import ListingEditScreen from './app/screens/ListingEditScreen';
 import ImageInput from './app/components/ImageInput';
 import ImageInputList from './app/components/ImageInputList';
 
-
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [imageUris, setImageUris] = useState();
 
   return (
-
     <Screen>
-      <ImageInputList
-        imageUri={imageUris}
-        onAddImage={uri => setImageUris([...imageUris, uri])}
-        onRemoveImage={uri => setImageUris(imageUris.filter(imageUri => imageUri !== uri))}
-      />
+      <ListingEditScreen />
     </Screen>
+
   )
 }
 

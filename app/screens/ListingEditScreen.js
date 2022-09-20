@@ -2,11 +2,11 @@ import React from "react"
 
 import * as Yup from "yup"
 import Screen from "../components/Screen"
-
 import defaultStyles from "../config/styles"
 import { AppForm, AppFormField, AppFormPicker, SubmitButton } from "../components/forms"
 import CategoryPickerItem from "../components/CategoryPickerItem"
-
+import useLocation from "../hooks/useLocation"
+import FormImagePicker from "../components/forms/FormImagePicker"
 
 
 const validationSchema = Yup.object().shape({
@@ -14,6 +14,7 @@ const validationSchema = Yup.object().shape({
     price: Yup.number().required().min(1).max(10000).label("Price"),
     description: Yup.string().label("Description"),
     category: Yup.object().required().nullable().label("Category"),
+    images: Yup.array().min(1, "Please select at least one image.")
 })
 
 const categories = [
@@ -28,6 +29,9 @@ const categories = [
 ]
 
 export default function ListingEditScreen() {
+
+    const location = useLocation();
+
     return (
         <Screen style={defaultStyles.screens}>
             <AppForm
@@ -36,10 +40,12 @@ export default function ListingEditScreen() {
                     price: "",
                     description: "",
                     category: null,
+                    images: []
                 }}
-                onSubmit={values => console.log(values)}
+                onSubmit={values => console.log(location)}
                 validationSchema={validationSchema}
             >
+                <FormImagePicker name="images" />
                 <AppFormField
                     maxLength={255}
                     name="title"
@@ -50,12 +56,14 @@ export default function ListingEditScreen() {
                     maxLength={8}
                     name="price"
                     placeholder="Price"
+                    width="30%"
+                    color="black"
                 />
                 <AppFormPicker
                     items={categories}
                     name="category"
                     placeholder="Category"
-                    width={"100%"}
+                    width={"40%"}
                     PickerItemComponent={CategoryPickerItem}
                     numberOfColumns={3}
                 />
