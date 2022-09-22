@@ -12,7 +12,7 @@ export default {
     },
     screens: {
         padding: 10,
-        backgroundColor: colors.light,
+        backgroundColor: colors.darkcoral,
     },
     logo: {
         width: 80,

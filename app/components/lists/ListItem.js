@@ -22,7 +22,7 @@ function ListItem({
         <GestureHandlerRootView>
             <Swipeable renderRightActions={renderRightActions}>
                 <TouchableHighlight
-                    underlayColor={colors.light} onPress={onPress}>
+                    underlayColor={colors.darkgrey} onPress={onPress}>
                     <View style={styles.container}>
                         {IconComponent}
                         {image && <Image style={styles.image} source={image} />}
@@ -33,7 +33,8 @@ function ListItem({
                             {subTitle && (
                                 <AppText
                                     style={styles.subTitle}
-                                    numberOfLines={2}>
+                                    numberOfLines={2}
+                                    ellipsizeMode="tail">
                                     {subTitle}
                                 </AppText>
                             )}
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
     container: {
         alignItems: "center",
         flexDirection: "row",
-        padding: 15,
+        padding: 10,
         backgroundColor: colors.white,
     },
     detailsContainer: {
@@ -67,6 +68,8 @@ const styles = StyleSheet.create({
         height: 70,
         borderRadius: 35,
         marginRight: 10,
+        borderColor: colors.black,
+        borderWidth: 1,
     },
     subTitle: {
         color: colors.medium

@@ -15,7 +15,7 @@ const initialMessages = [
     {
         id: 1,
         title: "Buğra Öner",
-        description: "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+        description: "lorem ipsum dolor sit amet consectetur adipisicing elit.",
         image: require("../assets/messagesScreen.jpg")
     },
     {
