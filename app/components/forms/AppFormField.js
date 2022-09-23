@@ -7,7 +7,7 @@ import AppTextInput from '../AppTextInput'
 
 export default function AppFormField({ name, width = "100%", ...otherProps }) {
 
-    const { setFieldTouched, handleChange, errors, touched } = useFormikContext()
+    const { setFieldTouched, setFieldValue, errors, touched, values } = useFormikContext()
     return (
         <>
             <AppTextInput
@@ -18,11 +18,11 @@ export default function AppFormField({ name, width = "100%", ...otherProps }) {
                 // keyboardType="email-address"
                 // textContentType="password"
                 // secureTextEntry={true}
-                onChangeText={handleChange(name)}
+                onChangeText={text => setFieldValue(name, text)}
+                value={values[name]}
                 onBlur={() => setFieldTouched(name)}
                 width={width}
                 {...otherProps}
-
             />
             <ErrorMessage error={errors[name]} visible={touched[name]} />
         </>
