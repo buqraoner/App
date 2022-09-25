@@ -4,4 +4,6 @@ export default Object.freeze({
   LOGIN: "Login",
   MESSAGES: "Messages",
   REGISTER: "Register",
+  WELCOME: "Welcome",
+  LOGIN_OR_REGISTER: "LoginOrRegister",
 });
