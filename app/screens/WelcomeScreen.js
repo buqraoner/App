@@ -1,16 +1,17 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, View, Image, Text } from 'react-native';
+import { StyleSheet, View, Image, Text, TouchableWithoutFeedback } from 'react-native';
 
-import Screen from '../components/Screen';
-import AppButton from '../components/AppButton';
-import { LinearGradient } from 'expo-linear-gradient';
+
 import colors from '../config/colors';
+import { AntDesign } from '@expo/vector-icons';
+import routes from '../navigation/routes';
+import WelcomeScreens from '../components/WelcomeScreens';
 
 
 
 function WelcomeScreen({ navigation }) {
     return (
-        <Screen
+        <WelcomeScreens
             colorsOne={colors.colorsONE}
             ColorsTwo={colors.colorsTWO}
             colorsThree={colors.colorsONE}
@@ -21,13 +22,19 @@ function WelcomeScreen({ navigation }) {
                 />
                 <Text style={styles.tagline}>Sell What You Don't Need</Text>
             </View>
-            <View style={styles.buttonsContainer}>
-            </View>
-        </Screen>
-
+            <TouchableWithoutFeedback
+                onPress={() => navigation.navigate(routes.LOGIN_OR_REGISTER)}
+            >
+                <AntDesign
+                    name="caretright"
+                    size={50}
+                    color="black"
+                    style={styles.icon}
+                />
+            </TouchableWithoutFeedback>
+        </WelcomeScreens>
     )
 }
-
 
 const styles = StyleSheet.create({
     logoContainer: {
@@ -44,16 +51,17 @@ const styles = StyleSheet.create({
         top: 70,
         borderColor: colors.customgrey,
     },
-    buttonsContainer: {
-        padding: 20,
-        width: "100%",
-    },
     tagline: {
         fontSize: 25,
         fontWeight: "600",
         paddingVertical: 15,
         color: colors.customgrey,
     },
+    icon: {
+        position: "absolute",
+        bottom: 25,
+        right: 10,
+    }
 })
 
 
