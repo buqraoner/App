@@ -14,6 +14,7 @@ import ActivityIndicator from '../components/ActivityIndicator'
 
 
 
+
 export default function ListingsScreen({ navigation }) {
     const getListingsApi = useApi(listingsApi.getListings);
     useEffect(() => {
@@ -57,7 +58,8 @@ export default function ListingsScreen({ navigation }) {
 const styles = StyleSheet.create({
     screen: {
         padding: 20,
-        backgroundColor: colors.lightorange,
+        backgroundColor: colors.gainsboro,
+
     },
     error: {
         color: colors.danger,

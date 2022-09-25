@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     },
     detailsContainer: {
         padding: 10,
-        backgroundColor: colors.medium,
+        backgroundColor: colors.white,
     },
     image: {
         width: "100%",
@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
     },
     title: {
         marginBottom: 7,
-        color: colors.white
+        color: colors.black,
+        fontWeight: "500"
     },
     subtitle: {
 

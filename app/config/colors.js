@@ -62,6 +62,12 @@ export default {
     darkturquoise: "#00ced1",
     lightviolet: "#ee82ee",
     darkviolet: "#9400d3",
+    lightazure: "#f0ffff",
+    customgrey: "#bdc3c7",
+    customdarkgrey: "#2c3e50",
+    gainsboro: "#dcdcdc",
+    colorsONE: '#DA0000',
+    colorsTWO: '#242c3b',
 
 
 }

@@ -6,6 +6,7 @@ import Icon from '../components/Icon'
 import Screen from '../components/Screen'
 import colors from '../config/colors'
 import ListItemSeparator from '../components/lists/ListItemSeparator'
+import useAuth from '../auth/useAuth'
 
 const menuItems = [
     {
@@ -26,6 +27,8 @@ const menuItems = [
 ]
 
 export default function AccountScreen({ navigation }) {
+    const { user, logOut } = useAuth
+
     return (
         <Screen style={styles.screen}>
             <View style={styles.container}>

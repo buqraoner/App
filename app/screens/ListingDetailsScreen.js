@@ -1,8 +1,9 @@
 import { View, StyleSheet, Image } from 'react-native'
 import React from 'react'
 import colors from '../config/colors'
-import { ListItem } from '../components/lists'
+import { ListItem, ListItemSeparator } from '../components/lists'
 import AppText from '../components/AppText'
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function ListingDetailsScreen({ route }) {
     const listing = route.params
@@ -11,10 +12,12 @@ export default function ListingDetailsScreen({ route }) {
         <View>
             <Image style={styles.image} source={{ uri: listing.images[0].url }} />
             <View style={styles.detailsContainer}>
-                <View>
+                <View style={styles.detailsHeader}>
                     <AppText style={styles.title}>{listing.title}</AppText>
                     <AppText style={styles.price}>${listing.price}</AppText>
                 </View>
+                <ListItemSeparator />
+                <AppText style={styles.description}>{listing.description}</AppText>
                 <View style={styles.userContainer}>
                     <ListItem
                         image={require("../assets/messagesScreen.jpg")}
@@ -30,24 +33,38 @@ export default function ListingDetailsScreen({ route }) {
 
 
 const styles = StyleSheet.create({
-    detailsContainer: {
-        padding: 20,
-    },
+
     image: {
         width: "100%",
         height: 300,
     },
+    detailsContainer: {
+        padding: 20,
+    },
+    userContainer: {
+        marginVertical: 50,
+    },
+    detailsHeader: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginBottom: 20,
+    },
+    description: {
+        marginTop: 10,
+        fontSize: 18,
+        fontWeight: "500",
+
+    },
+    title: {
+        fontSize: 25,
+        fontWeight: "650",
+        marginLeft: 5,
+        maxWidth: "75%",
+    },
     price: {
         color: colors.secondary,
         fontWeight: "bold",
-        fontSize: 20,
-        marginVertical: 10,
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: "500",
-    },
-    userContainer: {
-        marginVertical: 40,
+        fontSize: 25,
+        marginRight: 8,
     },
 });
