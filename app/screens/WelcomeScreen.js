@@ -16,6 +16,15 @@ function WelcomeScreen({ navigation }) {
             ColorsTwo={colors.colorsTWO}
             colorsThree={colors.colorsONE}
             colorsFour={colors.colorsTWO}
+            locationsOne={-0.5}
+            locationsTwo={0.5}
+            locationsThree={0.5}
+            locationsFour={0.9}
+            startX={0.2}
+            endX={2}
+            startY={-0.6}
+            endY={0.1}
+
         >
             <View style={styles.logoContainer}>
                 <Image style={styles.logo} source={require('../assets/logo.png')}
