@@ -16,7 +16,16 @@ export default function App() {
     const user = await authStorage.getUser();
     if (user) setUser(user);
   };
-
+  /*
+    if (!isReady)
+      return (
+        <AppLoading
+          startAsync={restoreUser}
+          onFinish={() => setIsReady(true)}
+          onError={console.warn}
+        />
+      );
+  */
 
 
   return (

@@ -29,6 +29,7 @@ const menuItems = [
 export default function AccountScreen({ navigation }) {
     const { user, logOut } = useAuth
 
+
     return (
         <Screen style={styles.screen}>
             <View style={styles.container}>

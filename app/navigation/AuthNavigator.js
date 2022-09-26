@@ -9,11 +9,14 @@ import LoginOrRegisterScreen from "../screens/LoginOrRegisterScreen";
 const Stack = createStackNavigator();
 
 const AuthNavigator = () => (
-    <Stack.Navigator>
+    //Tüm ekranların headerini kaldırmak için options kısmına headerShown: false yazıyoruz.
+    <Stack.Navigator
+        screenOptions={{
+            headerShown: false
+        }}>
         <Stack.Screen
             name="Welcome"
             component={WelcomeScreen}
-            options={{ headerShown: false }}
         />
         <Stack.Screen name="LoginOrRegister" component={LoginOrRegisterScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />

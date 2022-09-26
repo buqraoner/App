@@ -6,13 +6,17 @@ import { LinearGradient } from 'expo-linear-gradient'
 export default function WelcomeScreens({ children,
     style, colorsOne,
     ColorsTwo, colorsThree,
-    colorsFour, locationsOne, }) {
+    colorsFour, locationsOne,
+    locationsTwo, locationsThree,
+    locationsFour,
+    startX, startY,
+    endX, endY }) {
     return (
         <LinearGradient
-            start={{ x: 0.2, y: -0.6 }}
-            end={{ x: 2., y: 0.1 }}
+            start={{ x: startX, y: startY }}
+            end={{ x: endX, y: endY }}
             colors={[colorsOne, ColorsTwo, colorsThree, colorsFour]}
-            locations={[-0.2, 0.5, 0.5, 0.85]}
+            locations={[locationsOne, locationsTwo, locationsThree, locationsFour]}
             style={styles.background}>
             <SafeAreaView style={[styles.screen, style]}>
                 <View style={[styles.view, style]}>{children}</View>
