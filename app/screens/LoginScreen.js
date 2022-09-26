@@ -35,10 +35,10 @@ const LoginScreen = ({ navigation }) => {
 
     return (
         <WelcomeScreens
-            colorsOne={colors.colorsONE}
-            ColorsTwo={colors.colorsTWO}
-            colorsThree={colors.colorsONE}
-            colorsFour={colors.colorsTWO}
+            colorsOne={colors.colorsFOUR}
+            ColorsTwo={colors.colorsSIX}
+            colorsThree={colors.colorsFOUR}
+            colorsFour={colors.colorsSIX}
             locationsOne={-0.5}
             locationsTwo={0.5}
             locationsThree={0.5}

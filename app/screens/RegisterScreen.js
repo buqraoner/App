@@ -1,8 +1,8 @@
-import React from 'react';
-import { Image } from 'react-native';
+import React, { useState } from 'react';
+import { Image, StyleSheet, View, KeyboardAvoidingView } from 'react-native';
 import * as Yup from 'yup';
 
-import { AppForm, AppFormField, SubmitButton } from '../components/forms';
+import { AppForm, AppFormField, ErrorMessage, SubmitButton } from '../components/forms';
 import Screen from '../components/Screen';
 import defaultStyles from '../config/styles';
 import useApi from '../hooks/useApi';
@@ -10,11 +10,13 @@ import authApi from '../api/auth';
 import useAuth from '../auth/useAuth';
 import usersApi from '../api/users';
 
+import WelcomeScreens from '../components/WelcomeScreens';
+import colors from '../config/colors';
 //Register Screen
 const validationSchema = Yup.object().shape({
     name: Yup.string().required().min(1).label('Name'),
     email: Yup.string().required().email().label('Email'),
-    password: Yup.string().required().min(5).label('Password'),
+    password: Yup.string().required().min(4).label('Password'),
 });
 
 function RegisterScreen() {
@@ -27,7 +29,7 @@ function RegisterScreen() {
         const result = await registerApi.request(userInfo);
 
         if (!result.ok) {
-            if (result.data) setError(result.data.error);
+            if (result.data) setError(result.data.error)
             else {
                 setError("An unexpected error occurred.");
                 console.log(result);
@@ -38,47 +40,99 @@ function RegisterScreen() {
             userInfo.email,
             userInfo.password
         );
+
         auth.logIn(authToken);
     };
     return (
-        <Screen style={defaultStyles.screens}>
-            <Image style={defaultStyles.logo} source={require('../assets/logo.png')} />
+
+        <WelcomeScreens
+            colorsOne={colors.colorsFOUR}
+            ColorsTwo={colors.colorsSIX}
+            colorsThree={colors.colorsFOUR}
+            colorsFour={colors.colorsSIX}
+            locationsOne={-0.5}
+            locationsTwo={0.5}
+            locationsThree={0.5}
+            locationsFour={0.9}
+            startX={0.2}
+            endX={2}
+            startY={-0.6}
+            endY={0.1}
+            style={styles.container}>
+
+            <View style={styles.logoContainer}>
+                <Image style={styles.logo} source={require('../assets/logo.png')} />
+            </View>
+
             <AppForm
                 initialValues={{ name: '', email: '', password: '' }}
                 onSubmit={handleSubmit}
                 validationSchema={validationSchema}
             >
-                <AppFormField
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    icon="account"
-                    name="name"
-                    placeholder="Name"
-                    textContentType="name"
-                />
-                <AppFormField
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    icon="email"
-                    keyboardType="email-address"
-                    name="email"
-                    placeholder="Email"
-                    textContentType="emailAddress"
-                />
-                <AppFormField
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    icon="lock"
-                    name="password"
-                    placeholder="Password"
-                    secureTextEntry
-                    textContentType="password"
-                />
+                <View style={styles.formContainer}>
+                    <ErrorMessage error={error} visible={error} />
+
+                    <AppFormField
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        icon="account"
+                        name="name"
+                        placeholder="Name"
+                        textContentType="name"
+                    />
+                    <AppFormField
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        icon="email"
+                        keyboardType="email-address"
+                        name="email"
+                        placeholder="Email"
+                        textContentType="emailAddress"
+                    />
+                    <AppFormField
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        icon="lock"
+                        name="password"
+                        placeholder="Password"
+                        secureTextEntry
+                        textContentType="password"
+                    />
+                </View>
                 <SubmitButton title="Register" />
             </AppForm>
-        </Screen>
+            <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={100}
+            />
+
+        </WelcomeScreens>
+
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        padding: 20,
+    },
+
+    logoContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+
+    },
+    formContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 60,
+    },
+    logo: {
+        width: 120,
+        height: 120,
+        borderRadius: 70,
+    },
+
+});
 
 export default RegisterScreen;
 

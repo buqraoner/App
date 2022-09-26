@@ -9,10 +9,10 @@ import WelcomeScreens from '../components/WelcomeScreens'
 export default function LoginOrRegisterScreen({ navigation }) {
     return (
         <WelcomeScreens
-            colorsOne={colors.colorsONE}
-            ColorsTwo={colors.colorsTWO}
-            colorsThree={colors.colorsONE}
-            colorsFour={colors.colorsTWO}
+            colorsOne={colors.colorsTHREE}
+            ColorsTwo={colors.colorsFIVE}
+            colorsThree={colors.colorsTHREE}
+            colorsFour={colors.colorsFIVE}
             locationsOne={-0.5}
             locationsTwo={0.5}
             locationsThree={0.5}

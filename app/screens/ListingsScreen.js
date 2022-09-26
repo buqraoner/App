@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { StyleSheet, ScrollView } from 'react-native'
+import { StyleSheet, ScrollView, RefreshControl } from 'react-native'
 import { FlashList } from '@shopify/flash-list'
 
 import routes from '../navigation/routes'
@@ -11,8 +11,7 @@ import AppText from '../components/AppText'
 import Card from '../components/Card'
 import AppButton from '../components/AppButton'
 import ActivityIndicator from '../components/ActivityIndicator'
-
-
+import WelcomeScreens from '../components/WelcomeScreens'
 
 
 export default function ListingsScreen({ navigation }) {
@@ -21,10 +20,34 @@ export default function ListingsScreen({ navigation }) {
         getListingsApi.request();
 
     }, []);
+    const refreshing = () => {
+        getListingsApi.request();
+    }
+
 
     return (
-        <ScrollView>
-            <Screen style={styles.screen}>
+        <ScrollView
+            refreshControl={
+                <RefreshControl
+                    refreshing={getListingsApi.loading}
+                    onRefresh={refreshing}
+                />
+            }
+        >
+            <WelcomeScreens
+                colorsOne={colors.gainsboro}
+                ColorsTwo={colors.gainsboro}
+                colorsThree={colors.gainsboro}
+                colorsFour={colors.gainsboro}
+                locationsOne={-1}
+                locationsTwo={2}
+                locationsThree={-1}
+                locationsFour={2}
+                startX={0}
+                endX={3}
+                startY={-0.6}
+                endY={0.1}
+                style={styles.screen}>
                 {getListingsApi.error && (
                     <>
                         <AppText style={styles.error}>
@@ -37,6 +60,7 @@ export default function ListingsScreen({ navigation }) {
                     size="large"
                     color={colors.primary}
                 />
+
                 <FlashList
                     data={getListingsApi.data}
                     keyExtractor={(listing) => listing.id.toString()}
@@ -50,7 +74,7 @@ export default function ListingsScreen({ navigation }) {
                         />
                     )}
                 />
-            </Screen>
+            </WelcomeScreens>
         </ScrollView>
     )
 }
@@ -58,8 +82,6 @@ export default function ListingsScreen({ navigation }) {
 const styles = StyleSheet.create({
     screen: {
         padding: 20,
-        backgroundColor: colors.gainsboro,
-
     },
     error: {
         color: colors.danger,

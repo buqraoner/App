@@ -27,15 +27,14 @@ const menuItems = [
 ]
 
 export default function AccountScreen({ navigation }) {
-    const { user, logOut } = useAuth
-
+    const { user, logOut } = useAuth();
 
     return (
         <Screen style={styles.screen}>
             <View style={styles.container}>
                 <ListItem
-                    title="Buğra Öner"
-                    subTitle="buqraoner@gmail.com"
+                    title={user.name}
+                    subTitle={user.email}
                     image={require("../assets/messagesScreen.jpg")}
                 />
             </View>
@@ -66,6 +65,7 @@ export default function AccountScreen({ navigation }) {
                         backgroundColor="#ffe66d"
                     />
                 }
+                onPress={() => logOut()}
             />
         </Screen>
     )

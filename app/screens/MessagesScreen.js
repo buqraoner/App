@@ -42,7 +42,6 @@ function MessagesScreen(props) {
 
 
     return (
-
         <Screen>
             <FlatList
                 data={messages}

@@ -11,14 +11,16 @@ export default {
         fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
     },
     screens: {
-        padding: 10,
-        backgroundColor: colors.darkcoral,
+        padding: 15,
+        backgroundColor: colors.gainsboro,
     },
     logo: {
-        width: 80,
-        height: 80,
+        width: 100,
+        height: 100,
         alignSelf: "center",
         marginTop: 50,
-        marginBottom: 25
+        marginBottom: 25,
+        borderRadius: 120,
+
     }
 };

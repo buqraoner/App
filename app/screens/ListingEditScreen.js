@@ -35,6 +35,7 @@ export default function ListingEditScreen() {
     const [uploadVisible, setUploadVisible] = useState(false);
     const [progress, setProgress] = useState(0);
 
+
     const handleSubmit = async (listing, { resetForm }) => {
         setProgress(0);
         setUploadVisible(true);

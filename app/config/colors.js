@@ -68,6 +68,10 @@ export default {
     gainsboro: "#dcdcdc",
     colorsONE: '#DA0000',
     colorsTWO: '#242c3b',
+    colorsTHREE: '#DF3D3D',
+    colorsFOUR: '#DB5E5E',
+    colorsFIVE: '#343D4D',
+    colorsSIX: '#484F5C',
 
 
 }
